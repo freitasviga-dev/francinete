@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
     <title>Portal do Curso: Unhas em Gel - Inst. Francinete Freitas</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -14,7 +19,6 @@
                         senac: {
                             blue: '#004587',
                             orange: '#F47920',
-                            light: '#f8fafc',
                             dark: '#002B54',
                             gray: '#f1f5f9'
                         }
@@ -25,367 +29,344 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
-        .module-card { transition: all 0.3s ease; }
-        .module-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
-        .sticky-nav { position: sticky; top: 0; z-index: 50; }
-        
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #004587; border-radius: 5px; }
         ::-webkit-scrollbar-thumb:hover { background: #002B54; }
 
-        .gradient-text {
-            background: linear-gradient(90deg, #004587, #F47920);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
         .hero-bg {
-            background-image: linear-gradient(rgba(0, 43, 84, 0.8), rgba(0, 43, 84, 0.9)), url('https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=2069&auto=format&fit=crop');
+            background-image: linear-gradient(rgba(0, 43, 84, 0.85), rgba(0, 43, 84, 0.95)), url('https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=2069&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
-        
-        .img-hover { transition: transform 0.3s ease; }
-        .img-hover:hover { transform: scale(1.05); }
+
+        /* Estilos para os Módulos Expansíveis (Aulas) */
+        details > summary { list-style: none; cursor: pointer; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] summary ~ * { animation: sweep .5s ease-in-out; }
+        @keyframes sweep {
+            0%    {opacity: 0; transform: translateY(-10px)}
+            100%  {opacity: 1; transform: translateY(0)}
+        }
     </style>
 </head>
 <body class="bg-senac-gray text-gray-800 font-sans antialiased selection:bg-senac-orange selection:text-white">
 
-    <nav class="bg-senac-blue text-white sticky-nav shadow-lg border-b-4 border-senac-orange">
+    <nav class="bg-senac-blue text-white sticky top-0 z-50 shadow-lg border-b-4 border-senac-orange">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-3">
                     <i class="fas fa-gem text-senac-orange text-2xl drop-shadow-md"></i>
-                    <span class="font-bold text-lg hidden sm:block tracking-wide">Formação Profissional SENAC</span>
+                    <span class="font-bold text-lg hidden sm:block tracking-wide uppercase">Senac • Master Educacional</span>
                 </div>
                 <div class="hidden md:flex space-x-8 text-sm font-bold">
-                    <a href="#mes1" class="hover:text-senac-orange border-b-2 border-transparent hover:border-senac-orange transition pb-1"><i class="fas fa-microscope mr-1"></i> MÊS 1: Base & Saúde</a>
-                    <a href="#mes2" class="hover:text-senac-orange border-b-2 border-transparent hover:border-senac-orange transition pb-1"><i class="fas fa-hand-sparkles mr-1"></i> MÊS 2: Estruturas</a>
-                    <a href="#mes3" class="hover:text-senac-orange border-b-2 border-transparent hover:border-senac-orange transition pb-1"><i class="fas fa-star mr-1"></i> MÊS 3: Arte & Negócios</a>
+                    <a href="#mes1" class="hover:text-senac-orange transition"><i class="fas fa-microscope mr-1"></i> MÊS 1</a>
+                    <a href="#mes2" class="hover:text-senac-orange transition"><i class="fas fa-ruler-combined mr-1"></i> MÊS 2</a>
+                    <a href="#mes3" class="hover:text-senac-orange transition"><i class="fas fa-star mr-1"></i> MÊS 3</a>
                 </div>
-                <div class="bg-white text-senac-blue px-4 py-1.5 rounded-full text-sm font-bold shadow-inner flex items-center">
-                    <i class="fas fa-chalkboard-teacher mr-2 text-senac-orange"></i> Inst. Francinete Freitas
+                <div class="bg-white text-senac-dark px-4 py-1.5 rounded-full text-sm font-bold shadow-inner flex items-center">
+                    <i class="fas fa-chalkboard-teacher mr-2 text-senac-orange"></i> Docente: Francinete Freitas
                 </div>
             </div>
-        </div>
-        <div class="md:hidden flex overflow-x-auto bg-senac-dark text-xs p-3 gap-6 whitespace-nowrap font-bold">
-            <a href="#mes1" class="text-white hover:text-senac-orange uppercase">1. Fundamentos</a>
-            <a href="#mes2" class="text-white hover:text-senac-orange uppercase">2. Prática/Fibras</a>
-            <a href="#mes3" class="text-white hover:text-senac-orange uppercase">3. Arte/Gestão</a>
         </div>
     </nav>
 
-    <header class="hero-bg py-24 px-4 md:px-8 text-center relative overflow-hidden text-white shadow-xl">
-        <div class="max-w-4xl mx-auto relative z-10">
-            <span class="bg-senac-orange text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6 inline-block shadow-md">Currículo Extensivo - 12 Semanas</span>
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight drop-shadow-lg">Master em <span class="text-senac-orange">Nail Design</span></h1>
-            <p class="text-gray-200 text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed font-light">Da química dos polímeros à gestão financeira do seu estúdio. Um guia visual e técnico completo desenvolvido para formar as melhores profissionais do mercado.</p>
-            
-            <div class="flex flex-wrap justify-center gap-4 text-sm font-bold text-white bg-black/30 inline-flex p-4 rounded-2xl backdrop-blur-sm border border-white/10">
-                <span class="flex items-center px-4"><i class="fas fa-clock text-senac-orange mr-2 text-xl"></i> 3 Meses de Curso</span>
-                <span class="flex items-center px-4 border-l border-white/20"><i class="fas fa-certificate text-senac-orange mr-2 text-xl"></i> Certificação Senac</span>
-                <span class="flex items-center px-4 border-l border-white/20"><i class="fas fa-laptop-code text-senac-orange mr-2 text-xl"></i> Material 100% Atualizado</span>
-            </div>
+    <header class="hero-bg py-24 px-4 text-center relative overflow-hidden text-white shadow-xl">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <span class="bg-senac-orange text-white px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 inline-block shadow-md">Programa de Extensão Profissional - 3 Meses</span>
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight drop-shadow-lg">Especialização Master em <br><span class="text-senac-orange">Nail Design & Estruturas</span></h1>
+            <p class="text-gray-200 text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed font-light">Material didático interativo oficial para aulas teóricas e práticas. Abordagem científica da lâmina ungueal, arquitetura de polímeros e gestão de negócios em estética.</p>
         </div>
     </header>
 
-    <section id="mes1" class="max-w-7xl mx-auto px-4 py-20 scroll-mt-20">
-        <div class="flex items-center gap-4 mb-10 border-b-4 border-senac-blue pb-4">
-            <div class="w-16 h-16 bg-senac-blue text-white rounded-2xl flex items-center justify-center text-4xl font-extrabold shadow-lg">1</div>
+    <section id="mes1" class="max-w-7xl mx-auto px-4 py-16 scroll-mt-20">
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-4 mb-10 border-b-2 border-senac-blue pb-4">
+            <div class="w-16 h-16 bg-senac-blue text-white rounded-2xl flex items-center justify-center text-4xl font-extrabold shadow-lg shrink-0">1</div>
             <div>
-                <h2 class="text-4xl font-extrabold text-senac-dark">Fundamentos, Química e Biossegurança</h2>
-                <p class="text-senac-orange font-bold uppercase tracking-wider mt-1">Semanas 1 a 4 • A base de uma profissional de saúde e beleza</p>
+                <h2 class="text-3xl font-extrabold text-senac-dark uppercase">Fundamentos Clínicos e Químicos</h2>
+                <p class="text-senac-orange font-bold tracking-wider mt-1">Semanas 1 a 4 • Teoria Científica, Biossegurança e Preparação Química</p>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 module-card overflow-hidden flex flex-col">
-                <div class="h-48 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1584422201887-b952aeb809da?q=80&w=2070&auto=format&fit=crop" alt="Biossegurança" class="w-full h-full object-cover img-hover">
+        <details class="bg-white rounded-xl shadow-md border border-gray-200 mb-6 overflow-hidden group" open>
+            <summary class="bg-gray-50 p-6 font-bold text-xl text-senac-dark flex justify-between items-center hover:bg-gray-100 transition">
+                <span class="flex items-center"><i class="fas fa-notes-medical text-senac-blue mr-3"></i> Aula 1: Anatomia Ungueal e Patologias</span>
+                <i class="fas fa-chevron-down text-senac-orange group-open:rotate-180 transition duration-300"></i>
+            </summary>
+            <div class="p-6 border-t border-gray-200">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-bold text-senac-blue mb-3">A Estrutura da Lâmina Ungueal</h4>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li><strong class="text-senac-dark">Lâmina Ungueal:</strong> Composta por células queratinizadas mortas (aprox. 100 camadas). Translúcida, reflete a cor do leito.</li>
+                            <li><strong class="text-senac-dark">Matriz Ungueal:</strong> A fábrica da unha. Lesões aqui causam deformidades permanentes.</li>
+                            <li><strong class="text-senac-dark">Eponíquio e Cutícula:</strong> O Eponíquio é tecido vivo; a cutícula é o tecido morto aderido à lâmina. Na manicure russa, removemos apenas o tecido morto.</li>
+                            <li><strong class="text-senac-dark">Hiponíquio:</strong> Selo de queratina sob a borda livre que protege contra bactérias. <em>Nunca deve ser rompido com lixa ou palito.</em></li>
+                        </ul>
+                    </div>
+                    <div class="bg-red-50 p-5 rounded-lg border-l-4 border-red-500">
+                        <h4 class="text-lg font-bold text-red-700 mb-2"><i class="fas fa-biohazard mr-2"></i>Patologias Comuns na Mesa</h4>
+                        <ul class="space-y-2 text-sm text-gray-800">
+                            <li><strong>Onicólise:</strong> Descolamento da lâmina do leito. Pode ser causado por trauma mecânico (lixadeira agressiva) ou químico.</li>
+                            <li><strong>Síndrome da Unha Esverdeada (Pseudomonas Aeruginosa):</strong> Infecção bacteriana oportunista gerada por umidade presa (infiltração no alongamento). O tratamento exige remoção imediata, assepsia e suspensão do alongamento.</li>
+                            <li><strong>Onicomicose:</strong> Infecção fúngica. O alongamento é estritamente proibido. Encaminhar ao dermatologista.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="p-8 flex-1">
-                    <h3 class="text-2xl font-bold text-senac-blue mb-4 flex items-center"><i class="fas fa-shield-virus text-senac-orange mr-3"></i> Biossegurança e Patologias</h3>
-                    <p class="text-gray-600 text-sm mb-6">Regras da ANVISA e reconhecimento de doenças. O alongamento não cura doenças, ele pode agravá-las se feito incorretamente.</p>
+                <div class="mt-6 bg-blue-50 p-5 rounded-lg">
+                    <h4 class="font-bold text-senac-blue mb-2"><i class="fas fa-file-medical mr-2"></i>Obrigatoriedade: Ficha de Anamnese</h4>
+                    <p class="text-sm text-gray-700">Antes de tocar na cliente, a profissional deve preencher e pedir assinatura na Ficha de Anamnese, investigando: Diabetes (risco de cicatrização), Gestação (sensibilidade a químicos), Alergias (Metacrilatos) e uso de medicamentos contínuos (tireoide, por exemplo, afeta a fixação do gel).</p>
+                </div>
+            </div>
+        </details>
+
+        <details class="bg-white rounded-xl shadow-md border border-gray-200 mb-6 overflow-hidden group">
+            <summary class="bg-gray-50 p-6 font-bold text-xl text-senac-dark flex justify-between items-center hover:bg-gray-100 transition">
+                <span class="flex items-center"><i class="fas fa-flask text-senac-blue mr-3"></i> Aula 2: Química dos Polímeros e Preparação</span>
+                <i class="fas fa-chevron-down text-senac-orange group-open:rotate-180 transition duration-300"></i>
+            </summary>
+            <div class="p-6 border-t border-gray-200">
+                <div class="grid md:grid-cols-3 gap-6 mb-6">
+                    <div class="border border-gray-200 p-4 rounded-lg bg-gray-50">
+                        <h4 class="font-bold text-senac-blue text-center mb-2">Desidratador (PH Balancer)</h4>
+                        <p class="text-xs text-gray-600 text-center">Remove o excesso de umidade e oleosidade da lâmina. Altera temporariamente o PH da unha para criar um ambiente hostil a fungos e ideal para a adesão.</p>
+                    </div>
+                    <div class="border border-gray-200 p-4 rounded-lg bg-gray-50">
+                        <h4 class="font-bold text-senac-blue text-center mb-2">Primer (Adesivador)</h4>
+                        <p class="text-xs text-gray-600"><strong>Ácido:</strong> Cria micro-poros na unha (age como fita dupla face química). Usado para unhas muito oleosas.<br><br><strong>Sem Ácido:</strong> Atua como um velcro adesivo. Deixa uma camada residual pegajosa.</p>
+                    </div>
+                    <div class="border border-gray-200 p-4 rounded-lg bg-gray-50">
+                        <h4 class="font-bold text-senac-blue text-center mb-2">Gel Base (Capa Base)</h4>
+                        <p class="text-xs text-gray-600 text-center">Formado por oligômeros flexíveis. Acompanha a movimentação natural da lâmina ungueal e impede que o alongamento rígido tracione e machuque a unha natural.</p>
+                    </div>
+                </div>
+                <div class="bg-senac-dark text-white p-5 rounded-lg">
+                    <h4 class="font-bold text-senac-orange mb-2"><i class="fas fa-sun mr-2"></i>Física da Polimerização (Cabine)</h4>
+                    <p class="text-sm text-gray-300">O gel não "seca", ele <strong>polimeriza</strong>. A luz UV/LED ativa os <em>Fotoiniciadores</em> presentes no gel, fazendo com que as moléculas (monômeros/oligômeros) se unam formando uma cadeia sólida. Esse atrito molecular gera energia térmica (Pico Exotérmico), que é a sensação de queimação que a cliente sente.</p>
+                </div>
+            </div>
+        </details>
+    </section>
+
+    <section id="mes2" class="max-w-7xl mx-auto px-4 py-16 scroll-mt-20 bg-white border-y border-gray-200">
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-4 mb-10 border-b-2 border-senac-orange pb-4">
+            <div class="w-16 h-16 bg-senac-orange text-white rounded-2xl flex items-center justify-center text-4xl font-extrabold shadow-lg shrink-0">2</div>
+            <div>
+                <h2 class="text-3xl font-extrabold text-senac-dark uppercase">Arquitetura de Estruturas Artificiais</h2>
+                <p class="text-senac-blue font-bold tracking-wider mt-1">Semanas 5 a 8 • Fibra de Vidro, Controle de Produto e Lixamento Técnico</p>
+            </div>
+        </div>
+
+        <details class="bg-white rounded-xl shadow-md border border-gray-200 mb-6 overflow-hidden group">
+            <summary class="bg-gray-50 p-6 font-bold text-xl text-senac-dark flex justify-between items-center hover:bg-gray-100 transition">
+                <span class="flex items-center"><i class="fas fa-bezier-curve text-senac-orange mr-3"></i> Aula 3: O Esqueleto da Fibra e Pontos de Tensão</span>
+                <i class="fas fa-chevron-down text-senac-blue group-open:rotate-180 transition duration-300"></i>
+            </summary>
+            <div class="p-6 border-t border-gray-200">
+                <p class="text-gray-700 mb-4">A fibra de vidro não cria a unha, ela funciona como as vigas de aço dentro do concreto armado. A técnica exige simetria impecável.</p>
+                
+                <div class="grid lg:grid-cols-2 gap-8">
                     <div class="space-y-4">
-                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-senac-blue">
-                            <strong class="text-senac-blue block mb-1"><i class="fas fa-pump-medical mr-2"></i>Esterilização Correta (Autoclave)</strong>
-                            <span class="text-sm text-gray-700">Estufas estão ultrapassadas e proibidas. O processo: 1. Lavagem com detergente enzimático; 2. Secagem; 3. Embalagem em grau cirúrgico; 4. Autoclave.</span>
+                        <div class="bg-gray-50 p-4 rounded border-l-4 border-senac-blue">
+                            <strong class="text-senac-dark block">Selagem Transparente</strong>
+                            <span class="text-sm text-gray-600">A fibra deve ser umedecida com gel base até "sumir". Fibras brancas/secas são pontos ocos de quebra estrutural.</span>
                         </div>
-                        <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-senac-orange">
-                            <strong class="text-senac-orange block mb-1"><i class="fas fa-trash-alt mr-2"></i>Descarte Solidário</strong>
-                            <span class="text-sm text-gray-700">Lixas manuais e palitos de madeira são de <strong>USO ÚNICO</strong> ou estritamente individuais.</span>
+                        <div class="bg-gray-50 p-4 rounded border-l-4 border-senac-blue">
+                            <strong class="text-senac-dark block">Ponto de Tensão (Ápice)</strong>
+                            <span class="text-sm text-gray-600">É a área mais alta do alongamento, localizada na zona de stress (transição entre o leito e a borda livre). Serve como amortecedor de impactos.</span>
                         </div>
+                        <div class="bg-gray-50 p-4 rounded border-l-4 border-senac-blue">
+                            <strong class="text-senac-dark block">Curvatura em "C" e Espessura</strong>
+                            <span class="text-sm text-gray-600">Para resistência, a unha deve ter uma curvatura de 25% a 30% de um círculo perfeito, e a espessura da borda livre não deve ultrapassar 1.5 milímetros (espessura de um cartão de crédito).</span>
+                        </div>
+                    </div>
+                    <div class="bg-senac-gray p-4 rounded-xl flex flex-col justify-center items-center">
+                        <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?q=80&w=1998&auto=format&fit=crop" class="w-full h-48 object-cover rounded shadow-md mb-3" alt="Fibra de Vidro Aplicada">
+                        <p class="text-xs text-gray-500 text-center font-bold">Distribuição da trama cobrindo os cantos (Ponto zero ao ponto zero).</p>
                     </div>
                 </div>
             </div>
+        </details>
 
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 module-card overflow-hidden flex flex-col">
-                <div class="h-48 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=2070&auto=format&fit=crop" alt="Anatomia da Unha e Preparação" class="w-full h-full object-cover img-hover">
+        <details class="bg-white rounded-xl shadow-md border border-gray-200 mb-6 overflow-hidden group">
+            <summary class="bg-gray-50 p-6 font-bold text-xl text-senac-dark flex justify-between items-center hover:bg-gray-100 transition">
+                <span class="flex items-center"><i class="fas fa-ruler text-senac-orange mr-3"></i> Aula 4: Parâmetros de Lixamento Simétrico (Ângulos)</span>
+                <i class="fas fa-chevron-down text-senac-blue group-open:rotate-180 transition duration-300"></i>
+            </summary>
+            <div class="p-6 border-t border-gray-200">
+                <p class="text-gray-700 mb-6 font-bold">Regra Senac de Geometria em Mesa: Onde a lixa posiciona, a parede da unha obedece.</p>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left text-gray-700 border-collapse">
+                        <thead class="text-xs text-white uppercase bg-senac-blue">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 rounded-tl-lg">Passo / Região</th>
+                                <th scope="col" class="px-6 py-3">Ângulo da Lixa</th>
+                                <th scope="col" class="px-6 py-3">Objetivo Técnico</th>
+                                <th scope="col" class="px-6 py-3 rounded-tr-lg">Formato (Quadrada)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-6 py-4 font-bold text-senac-dark">1. Borda Livre (Comprimento)</th>
+                                <td class="px-6 py-4">90 Graus (Reta)</td>
+                                <td class="px-6 py-4">Definir simetria de tamanho</td>
+                                <td class="px-6 py-4">Fica reta</td>
+                            </tr>
+                            <tr class="bg-gray-50 border-b">
+                                <th scope="row" class="px-6 py-4 font-bold text-senac-dark">2. Paredes Laterais (Side Walls)</th>
+                                <td class="px-6 py-4">0 Graus (Reta paralela)</td>
+                                <td class="px-6 py-4">Evitar unha "larga" ou funil</td>
+                                <td class="px-6 py-4">Estreita o alongamento</td>
+                            </tr>
+                            <tr class="bg-white border-b">
+                                <th scope="row" class="px-6 py-4 font-bold text-senac-dark">3. Linha Inferior (Lower Arch)</th>
+                                <td class="px-6 py-4">0 Graus (Embaixo)</td>
+                                <td class="px-6 py-4">Retirar caimento (bico de papagaio)</td>
+                                <td class="px-6 py-4">Linha reta que sai do dedo</td>
+                            </tr>
+                            <tr class="bg-gray-50 border-b">
+                                <th scope="row" class="px-6 py-4 font-bold text-senac-dark">4. Superfície e Ápice</th>
+                                <td class="px-6 py-4">Movimento Arredondado</td>
+                                <td class="px-6 py-4">Nivelar o esqueleto sem tirar o ponto de tensão</td>
+                                <td class="px-6 py-4">Lisa e uniforme</td>
+                            </tr>
+                            <tr class="bg-white">
+                                <th scope="row" class="px-6 py-4 font-bold text-senac-dark">5. Área da Cutícula (Nivelamento)</th>
+                                <td class="px-6 py-4">Broca Fina a 45 Graus</td>
+                                <td class="px-6 py-4">Zerar o degrau entre gel e unha natural</td>
+                                <td class="px-6 py-4">Evita levantamentos</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="p-8 flex-1">
-                    <h3 class="text-2xl font-bold text-senac-blue mb-4 flex items-center"><i class="fas fa-search-plus text-senac-orange mr-3"></i> Preparação e Anatomia</h3>
-                    <p class="text-gray-600 text-sm mb-6">Conhecer cada camada da unha para evitar lesões por brocas e excesso de lixamento mecânico. A lâmina ungueal tem cerca de 100 camadas de queratina.</p>
-                    
-                    <ul class="text-sm text-gray-700 space-y-4">
-                        <li class="flex items-start"><i class="fas fa-check-circle text-senac-orange mt-1 mr-2"></i> <div><strong class="text-senac-blue">Matriz (Raiz):</strong> Fica abaixo da cutícula. Lixar forte aqui deforma a unha da cliente para sempre.</div></li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-senac-orange mt-1 mr-2"></i> <div><strong class="text-senac-blue">Hiponíquio:</strong> Pele que fica embaixo da borda livre. Extremamente sensível ao corte ou lixamento.</div></li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-senac-orange mt-1 mr-2"></i> <div><strong class="text-senac-blue">Manicure Combinada:</strong> O segredo para um acabamento impecável, unindo o uso de brocas e tesoura/alicate para remoção limpa da cutícula.</div></li>
-                    </ul>
-                </div>
+            </div>
+        </details>
+    </section>
+
+    <section id="mes3" class="max-w-7xl mx-auto px-4 py-16 scroll-mt-20">
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-4 mb-10 border-b-2 border-senac-dark pb-4">
+            <div class="w-16 h-16 bg-senac-dark text-white rounded-2xl flex items-center justify-center text-4xl font-extrabold shadow-lg shrink-0">3</div>
+            <div>
+                <h2 class="text-3xl font-extrabold text-senac-blue uppercase">Design Avançado e Gestão Master</h2>
+                <p class="text-gray-500 font-bold tracking-wider mt-1">Semanas 9 a 12 • Manutenção Crítica, Nail Art de Luxo e Empreendedorismo Estratégico</p>
             </div>
         </div>
 
-        <div class="bg-senac-dark text-white rounded-2xl shadow-xl relative overflow-hidden border-b-8 border-senac-orange">
-            <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1595868686968-3e421035b871?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay"></div>
-            
-            <div class="p-8 md:p-10 relative z-10">
-                <h3 class="text-3xl font-bold text-senac-orange mb-8 text-center border-b border-gray-600 pb-4"><i class="fas fa-flask mr-2"></i> Conhecendo o Material de Trabalho</h3>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white/10 p-6 rounded-xl backdrop-blur-md border border-white/10 hover:bg-white/20 transition">
-                        <div class="w-12 h-12 bg-senac-orange rounded-full flex items-center justify-center text-2xl mb-4"><i class="fas fa-bolt text-white"></i></div>
-                        <h4 class="font-bold text-xl mb-2 text-white">Micromotor (Brocas)</h4>
-                        <p class="text-gray-300 text-sm mb-3">Requisito mínimo: <strong>35.000 RPM</strong> para não trepidar e machucar.</p>
-                        <ul class="text-sm text-gray-400 list-disc list-inside">
-                            <li>Diamantada (718/720): Cutícula</li>
-                            <li>Tungstênio: Nivelamento/Remoção</li>
+        <details class="bg-white rounded-xl shadow-md border border-gray-200 mb-6 overflow-hidden group">
+            <summary class="bg-gray-50 p-6 font-bold text-xl text-senac-dark flex justify-between items-center hover:bg-gray-100 transition">
+                <span class="flex items-center"><i class="fas fa-tools text-senac-blue mr-3"></i> Aula 5: Rebalanceamento (Manutenção) e Casos Clínicos</span>
+                <i class="fas fa-chevron-down text-senac-orange group-open:rotate-180 transition duration-300"></i>
+            </summary>
+            <div class="p-6 border-t border-gray-200">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-bold text-senac-blue mb-2 text-lg">Rebalanceamento Estrutural</h4>
+                        <p class="text-sm text-gray-700 mb-3">Com o crescimento (15 a 30 dias), o Ponto de Tensão (Ápice) vai para a ponta, deixando a área de stress vulnerável e a unha "pesada". A manutenção <strong>não é só preencher o buraco na raiz</strong>.</p>
+                        <ul class="list-decimal list-inside text-sm text-gray-700 space-y-2 font-medium bg-gray-50 p-4 rounded border border-gray-200">
+                            <li>Desbastar 50% a 70% de todo o material antigo com broca de tungstênio.</li>
+                            <li>Remover <strong>totalmente</strong> qualquer ponto de infiltração.</li>
+                            <li>Afinar a ponta (que ficou grossa devido ao crescimento da curvatura).</li>
+                            <li>Preparar quimicamente <em>apenas</em> o leito natural exposto.</li>
+                            <li>Reconstruir o novo Ápice na posição correta.</li>
                         </ul>
                     </div>
-                    
-                    <div class="bg-white/10 p-6 rounded-xl backdrop-blur-md border border-white/10 hover:bg-white/20 transition">
-                        <div class="w-12 h-12 bg-senac-blue rounded-full flex items-center justify-center text-2xl mb-4"><i class="fas fa-tint text-white"></i></div>
-                        <h4 class="font-bold text-xl mb-2 text-white">A Química do Gel</h4>
-                        <p class="text-gray-300 text-sm mb-3">Géis são polímeros que dependem de Fotoiniciadores para secar.</p>
-                        <ul class="text-sm text-gray-400 list-disc list-inside">
-                            <li>Gel Base: Flexível (Aderência)</li>
-                            <li>Gel Hard: Rígido (Esqueleto/Ponta)</li>
-                            <li>Gel Construtor: Ápice/Leito</li>
+                    <div>
+                        <h4 class="font-bold text-senac-blue mb-2 text-lg">Reconstrução em Onicofagia (Unhas Roídas)</h4>
+                        <p class="text-sm text-gray-700 mb-3">O leito é muito curto e a pele frontal forma uma "barreira" (hiponíquio hipertrofiado).</p>
+                        <div class="bg-orange-50 p-4 rounded border border-orange-200">
+                            <strong class="text-senac-orange block mb-1">Protocolo Master:</strong>
+                            <p class="text-sm text-gray-700">Não colar tip. Criar uma <em>"ponte de acrílico ou gel construtor rígido"</em> diretamente na pele para alongar o leito temporariamente. Aplicar o molde de papel ou a fibra por cima dessa base criada. A manutenção em roedoras deve ser em <strong>15 dias</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+        <details class="bg-white rounded-xl shadow-md border border-gray-200 mb-6 overflow-hidden group">
+            <summary class="bg-gray-50 p-6 font-bold text-xl text-senac-dark flex justify-between items-center hover:bg-gray-100 transition">
+                <span class="flex items-center"><i class="fas fa-gem text-senac-blue mr-3"></i> Aula 6: A Rainha da Mesa - Francesa Reversa Encapsulada</span>
+                <i class="fas fa-chevron-down text-senac-orange group-open:rotate-180 transition duration-300"></i>
+            </summary>
+            <div class="p-6 border-t border-gray-200">
+                <p class="text-gray-700 mb-4">A técnica que mais eleva o ticket médio do estúdio. Exige precisão arquitetônica para criar o "leito fake" (alongamento do leito natural).</p>
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="w-full md:w-1/2 bg-senac-gray p-5 rounded-lg border border-gray-300">
+                        <strong class="text-senac-dark block text-lg mb-3">Construção Passo a Passo:</strong>
+                        <ul class="text-sm text-gray-800 space-y-3">
+                            <li><i class="fas fa-check text-green-600 mr-2"></i><strong>1. Leito de Cover:</strong> Aplicar Gel Cover (Nude de alta pigmentação e densidade) criando uma forma oval/amendoada sobre a base, ultrapassando a borda livre.</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i><strong>2. Parede do Sorriso:</strong> Catalisar. Com lixa manual, lixar o contorno frontal desse leito a 90 graus, criando uma "parede" reta de aproximadamente 1.5mm de altura.</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i><strong>3. Decoração da Ponta:</strong> Preencher o degrau vazio na ponta com gel branco, colorido, glitter ou madrepérola.</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i><strong>4. Encapsulamento:</strong> Cobrir apenas a ponta decorada com Gel Clear (Transparente) até nivelar com o leito.</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i><strong>5. Lixamento de Nivelamento:</strong> A mágica aparece ao lixar o topo; a linha de sorriso fica cirurgicamente perfeita e inesquecível.</li>
                         </ul>
                     </div>
-
-                    <div class="bg-white/10 p-6 rounded-xl backdrop-blur-md border border-white/10 hover:bg-white/20 transition">
-                        <div class="w-12 h-12 bg-senac-orange rounded-full flex items-center justify-center text-2xl mb-4"><i class="fas fa-sun text-white"></i></div>
-                        <h4 class="font-bold text-xl mb-2 text-white">Cabine UV/LED</h4>
-                        <p class="text-gray-300 text-sm mb-3">Mínimo recomendado de <strong>48W de potência</strong>. Secagem total evita alergias.</p>
-                        <p class="text-sm text-gray-400"><i class="fas fa-exclamation-triangle text-yellow-500 mr-1"></i> Pico Exotérmico: Cuidado com a sensação de queimação, oriente a cliente.</p>
+                    <div class="w-full md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=2073&auto=format&fit=crop" class="w-full h-full object-cover rounded-lg shadow" alt="Nail Art e Francesa">
                     </div>
                 </div>
             </div>
-        </div>
+        </details>
+
+        <details class="bg-gradient-to-r from-senac-dark to-senac-blue rounded-xl shadow-2xl mb-6 overflow-hidden group text-white">
+            <summary class="bg-black/20 p-6 font-bold text-xl flex justify-between items-center hover:bg-black/30 transition">
+                <span class="flex items-center text-senac-orange"><i class="fas fa-chart-line mr-3"></i> Aula 7: Gestão do Negócio, Precificação e Marketing</span>
+                <i class="fas fa-chevron-down text-white group-open:rotate-180 transition duration-300"></i>
+            </summary>
+            <div class="p-6 border-t border-white/20">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white/10 p-5 rounded-lg backdrop-blur-sm border border-white/10">
+                        <h4 class="font-bold text-lg text-senac-orange mb-3"><i class="fas fa-calculator mr-2"></i>A Matemática do Preço</h4>
+                        <p class="text-xs text-gray-200 mb-2">Preço base = Custo Material + (Custo Fixo Mensal / Horas Trabalhadas) + Valor da sua Hora (Lucratividade).</p>
+                        <p class="text-xs text-gray-200"><strong>Exemplo Prático:</strong> Um pote de gel de 30g atende em média 15 a 20 manutenções. Você deve calcular o custo por grama. Nunca precifique baseado apenas na "concorrente da esquina". Você entrega biossegurança Senac, venda isso!</p>
+                    </div>
+                    <div class="bg-white/10 p-5 rounded-lg backdrop-blur-sm border border-white/10">
+                        <h4 class="font-bold text-lg text-senac-orange mb-3"><i class="fas fa-camera mr-2"></i>Portfólio que Vende</h4>
+                        <ul class="text-xs text-gray-200 space-y-2 list-disc list-inside">
+                            <li>O cérebro compra estética. Limpe muito bem os sulcos antes da foto.</li>
+                            <li>Hidrate com óleo de cutículas, mas remova o excesso com pano seco. Dedos gordurosos não passam credibilidade.</li>
+                            <li>Use Ring Light ou Macro Lentes, posicione o foco exatamente no reflexo linear do Top Coat (para mostrar o nivelamento perfeito).</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/10 p-5 rounded-lg backdrop-blur-sm border border-white/10">
+                        <h4 class="font-bold text-lg text-senac-orange mb-3"><i class="fas fa-heart mr-2"></i>Experiência da Cliente</h4>
+                        <p class="text-xs text-gray-200">A cliente não volta só pela unha, ela volta pelo atendimento. Implemente:</p>
+                        <ul class="text-xs text-gray-200 mt-2 space-y-1 list-disc list-inside">
+                            <li>Marketing Olfativo (cheiro característico no estúdio).</li>
+                            <li>Abertura dos materiais esterilizados na frente dela.</li>
+                            <li>Mensagem de pós-venda 2 dias depois perguntando sobre adaptação.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </details>
     </section>
 
-    <section id="mes2" class="max-w-7xl mx-auto px-4 py-20 scroll-mt-20 bg-white border-y border-gray-200">
-        <div class="flex items-center gap-4 mb-10 border-b-4 border-senac-orange pb-4">
-            <div class="w-16 h-16 bg-senac-orange text-white rounded-2xl flex items-center justify-center text-4xl font-extrabold shadow-lg">2</div>
-            <div>
-                <h2 class="text-4xl font-extrabold text-senac-dark">Prática, Estruturas e Fibras</h2>
-                <p class="text-senac-blue font-bold uppercase tracking-wider mt-1">Semanas 5 a 8 • A mão na massa e a arquitetura perfeita</p>
-            </div>
-        </div>
-
-        <div class="mb-16">
-            <h3 class="text-3xl font-bold text-center text-senac-dark mb-4">Domínio da Fibra de Vidro</h3>
-            <p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto">A técnica mais valorizada do Brasil. A fibra serve de esqueleto (teia) para segurar o gel de forma natural e hiper-resistente.</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:-translate-y-2 transition duration-300 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1516975080661-46019b882eb7?q=80&w=1974&auto=format&fit=crop" class="w-full h-40 object-cover rounded-xl mb-4" alt="Preparação">
-                    <div class="flex items-center mb-3">
-                        <span class="bg-senac-blue text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">1</span>
-                        <h4 class="font-bold text-senac-dark">Abertura e Selagem</h4>
-                    </div>
-                    <p class="text-sm text-gray-600">Aplicar Gel Base na ponta da unha e aderir a fibra, selando bem até ficar totalmente transparente (camuflada).</p>
-                </div>
-                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:-translate-y-2 transition duration-300 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?q=80&w=1998&auto=format&fit=crop" class="w-full h-40 object-cover rounded-xl mb-4" alt="Ponto de Tensão">
-                    <div class="flex items-center mb-3">
-                        <span class="bg-senac-orange text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">2</span>
-                        <h4 class="font-bold text-senac-dark">Atenção às Laterais</h4>
-                    </div>
-                    <p class="text-sm text-gray-600">Não deixe faltar fibra nos cantos. Isso cria "dentes" estruturais e faz a unha quebrar pelas bordas.</p>
-                </div>
-                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:-translate-y-2 transition duration-300 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?q=80&w=2070&auto=format&fit=crop" class="w-full h-40 object-cover rounded-xl mb-4" alt="Curvatura">
-                    <div class="flex items-center mb-3">
-                        <span class="bg-senac-blue text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">3</span>
-                        <h4 class="font-bold text-senac-dark">Curvatura C</h4>
-                    </div>
-                    <p class="text-sm text-gray-600">Aplicar Gel Hard na extensão. Levar à cabine por ~5s. Pinçar a área de stress para formar a curvatura C (25-30%).</p>
-                </div>
-                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:-translate-y-2 transition duration-300 shadow-md">
-                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=2069&auto=format&fit=crop" class="w-full h-40 object-cover rounded-xl mb-4" alt="Finalização">
-                    <div class="flex items-center mb-3">
-                        <span class="bg-senac-orange text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">4</span>
-                        <h4 class="font-bold text-senac-dark">Ponto de Tensão</h4>
-                    </div>
-                    <p class="text-sm text-gray-600">Aplicar o Gel Construtor flutuando o pincel para nivelar e criar o ápice (amortecedor). Catalisar tempo total.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-senac-gray rounded-3xl overflow-hidden shadow-lg border border-gray-200 flex flex-col lg:flex-row">
-            <div class="w-full lg:w-2/5">
-                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=2070&auto=format&fit=crop" alt="Lixamento" class="w-full h-full object-cover">
-            </div>
-            <div class="w-full lg:w-3/5 p-8 md:p-12 bg-white">
-                <h3 class="text-3xl font-bold text-senac-dark mb-4 border-l-4 border-senac-orange pl-4">Guia de Lixamento Técnico</h3>
-                <p class="text-gray-600 mb-6">A unha não sai pronta do gel. A magia da simetria acontece na lixa manual (100/180).</p>
-                
-                <div class="space-y-4 text-sm text-gray-800">
-                    <div class="flex items-start bg-blue-50 p-4 rounded-xl">
-                        <span class="bg-senac-blue text-white rounded-full w-6 h-6 flex items-center justify-center font-bold mr-3 mt-0.5">1</span> 
-                        <div><strong class="text-senac-blue block mb-1">Ponta (Comprimento)</strong> Lixa a 90 graus (totalmente em pé) contra a ponta para definir o tamanho exato.</div>
-                    </div>
-                    <div class="flex items-start bg-orange-50 p-4 rounded-xl">
-                        <span class="bg-senac-orange text-white rounded-full w-6 h-6 flex items-center justify-center font-bold mr-3 mt-0.5">2</span> 
-                        <div><strong class="text-senac-orange block mb-1">Paredes Laterais</strong> Lixa a 0 graus (reta). Define se a unha é Quadrada ou Amendoada.</div>
-                    </div>
-                    <div class="flex items-start bg-blue-50 p-4 rounded-xl">
-                        <span class="bg-senac-blue text-white rounded-full w-6 h-6 flex items-center justify-center font-bold mr-3 mt-0.5">3</span> 
-                        <div><strong class="text-senac-blue block mb-1">Superfície (Ápice e Leito)</strong> Nivelamento do ponto de tensão em direção à ponta e cutícula.</div>
-                    </div>
-                    <div class="flex items-start bg-orange-50 p-4 rounded-xl">
-                        <span class="bg-senac-orange text-white rounded-full w-6 h-6 flex items-center justify-center font-bold mr-3 mt-0.5">4</span> 
-                        <div><strong class="text-senac-orange block mb-1">Área da Cutícula</strong> Broca em ângulo de 45º para zerar o degrau de gel perto da pele.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="mes3" class="max-w-7xl mx-auto px-4 py-20 scroll-mt-20">
-        <div class="flex items-center gap-4 mb-10 border-b-4 border-senac-blue pb-4">
-            <div class="w-16 h-16 bg-senac-dark text-white rounded-2xl flex items-center justify-center text-4xl font-extrabold shadow-lg">3</div>
-            <div>
-                <h2 class="text-4xl font-extrabold text-senac-blue">Arte, Manutenção e Empreendedorismo</h2>
-                <p class="text-gray-500 font-bold uppercase tracking-wider mt-1">Semanas 9 a 12 • Transformando talento em um negócio lucrativo</p>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <div class="bg-white p-8 rounded-2xl shadow-lg border-t-8 border-senac-orange module-card">
-                <h3 class="text-2xl font-bold text-senac-dark mb-6 flex items-center"><i class="fas fa-tools text-senac-orange mr-3"></i> Manutenção e Correções</h3>
-                <p class="text-gray-600 text-sm mb-6">Aprenda a ler os sinais e realizar a manutenção perfeita (21 a 30 dias).</p>
-                
-                <ul class="space-y-4">
-                    <li class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                        <strong class="text-senac-blue block mb-1"><i class="fas fa-search mr-2"></i>Infiltração na Cutícula</strong>
-                        <span class="text-sm text-gray-700"><strong>Causa:</strong> Gel encostado na pele. <strong>Solução:</strong> Desbastar todo o gel levantado com a broca. NUNCA aplicar gel novo sobre gel descolado.</span>
-                    </li>
-                    <li class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                        <strong class="text-senac-orange block mb-1"><i class="fas fa-heart-broken mr-2"></i>Quebra no Meio</strong>
-                        <span class="text-sm text-gray-700"><strong>Causa:</strong> Falta de Ponto de Tensão. <strong>Solução:</strong> Refazer a estrutura reforçando o ápice com gel construtor.</span>
-                    </li>
-                    <li class="bg-senac-blue text-white p-4 rounded-lg">
-                        <strong class="block mb-2"><i class="fas fa-list-ol mr-2"></i>Regra de Ouro da Manutenção:</strong>
-                        <span class="text-sm">Remover 50% do volume, remover 100% dos descolamentos, e preparar APENAS a unha natural crescida.</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="bg-senac-dark text-white rounded-2xl shadow-lg border-t-8 border-senac-blue module-card overflow-hidden">
-                <div class="h-40 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=2073&auto=format&fit=crop" class="w-full h-full object-cover opacity-70" alt="Nail Art">
-                    <div class="absolute inset-0 bg-gradient-to-t from-senac-dark to-transparent"></div>
-                    <h3 class="absolute bottom-4 left-8 text-2xl font-bold text-senac-orange flex items-center"><i class="fas fa-palette mr-3"></i> Nail Art de Alto Padrão</h3>
-                </div>
-                <div class="p-8 pt-4 space-y-5">
-                    <div class="flex gap-4 items-start">
-                        <div class="bg-white/10 p-3 rounded-lg text-senac-orange"><i class="fas fa-brush text-xl"></i></div>
-                        <div>
-                            <strong class="text-lg">Esmaltação em Gel</strong>
-                            <p class="text-sm text-gray-400 mt-1">Camadas ultrafinas sem encostar na cutícula. Catalisar 60s cada camada.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4 items-start">
-                        <div class="bg-white/10 p-3 rounded-lg text-senac-blue"><i class="fas fa-magic text-xl text-white"></i></div>
-                        <div>
-                            <strong class="text-lg">Baby Boomer & Baby Color</strong>
-                            <p class="text-sm text-gray-400 mt-1">Degradê sutil construído molhado sobre molhado com Géis. Sem marcação dura.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4 items-start">
-                        <div class="bg-white/10 p-3 rounded-lg text-senac-orange"><i class="fas fa-gem text-xl"></i></div>
-                        <div>
-                            <strong class="text-lg">Francesa Reversa & Encapsulado</strong>
-                            <p class="text-sm text-gray-400 mt-1">A técnica mais cara da mesa. Cria-se a parede do sorriso e aplica-se glitter, madre pérola ou cor, selando com Gel Clear.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-gradient-to-br from-senac-blue to-senac-dark p-8 md:p-12 rounded-3xl shadow-2xl text-center relative text-white border-4 border-senac-orange/20">
-            <h3 class="text-3xl font-extrabold text-senac-orange mb-4 uppercase tracking-widest"><i class="fas fa-chart-line mr-3"></i> Gestão do Estúdio e Marketing</h3>
-            <p class="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">Saber fazer unhas não é o suficiente. Você precisa saber <strong>vender</strong>. Este é o diferencial do aluno Senac.</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-md border border-white/20 hover:-translate-y-2 transition">
-                    <div class="text-senac-orange text-4xl mb-4"><i class="fas fa-calculator"></i></div>
-                    <h4 class="font-bold text-xl mb-2 text-white">Precificação Correta</h4>
-                    <ul class="text-sm text-gray-300 list-disc list-inside space-y-2">
-                        <li>Calcule o Custo Variável (gel gasto).</li>
-                        <li>Calcule o Custo Fixo (aluguel, luz).</li>
-                        <li>Adicione seu valor de Hora Trabalhada.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-md border border-white/20 hover:-translate-y-2 transition">
-                    <div class="text-senac-orange text-4xl mb-4"><i class="fas fa-id-card"></i></div>
-                    <h4 class="font-bold text-xl mb-2 text-white">Formalização (MEI)</h4>
-                    <ul class="text-sm text-gray-300 list-disc list-inside space-y-2">
-                        <li>CNPJ próprio para seu salão.</li>
-                        <li>Direito a Aposentadoria e Auxílio.</li>
-                        <li>Contas PJ e maquininhas com taxas menores.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white/10 p-6 rounded-2xl backdrop-blur-md border border-white/20 hover:-translate-y-2 transition">
-                    <div class="text-senac-orange text-4xl mb-4"><i class="fas fa-camera-retro"></i></div>
-                    <h4 class="font-bold text-xl mb-2 text-white">Fotografia que Vende</h4>
-                    <ul class="text-sm text-gray-300 list-disc list-inside space-y-2">
-                        <li>Limpe as cutículas com óleo antes da foto.</li>
-                        <li>Luz de frente (Ring Light), nunca de cima.</li>
-                        <li>Mostre limpeza e biossegurança nas redes.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-senac-dark text-white pt-16 pb-8 border-t-8 border-senac-orange relative">
-        <svg class="absolute top-0 w-full h-10 -mt-10 text-senac-dark" preserveAspectRatio="none" viewBox="0 0 1440 54" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 22L120 16.7C240 11.3 480 0.7 720 0.7C960 0.7 1200 11.3 1320 16.7L1440 22V54H1320C1200 54 960 54 720 54C480 54 240 54 120 54H0V22Z"></path>
-        </svg>
-        
+    <footer class="bg-senac-dark text-white pt-12 pb-8 border-t-8 border-senac-orange">
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="max-w-md text-center md:text-left">
+            <div class="max-w-xl text-center md:text-left">
                 <div class="flex items-center justify-center md:justify-start gap-3 mb-4">
                     <i class="fas fa-graduation-cap text-3xl text-senac-orange"></i>
                     <h3 class="text-2xl font-extrabold tracking-wide">Excelência Senac</h3>
                 </div>
-                <p class="text-gray-400 text-sm mb-6 leading-relaxed">Este guia visual faz parte do material curricular de extensão profissional de 12 semanas (3 meses).</p>
+                <p class="text-gray-400 text-sm mb-4 leading-relaxed">Guia didático do professor, protegido por direitos metodológicos. Material elaborado para garantir a máxima excelência na formação de Especialistas em Nail Design.</p>
                 
                 <div class="bg-white/5 border border-white/10 p-4 rounded-xl inline-block text-left">
-                    <p class="text-xs text-senac-orange font-bold uppercase tracking-widest mb-1">Docente Especialista</p>
-                    <p class="text-2xl font-bold">Francinete Freitas</p>
-                    <p class="text-sm text-gray-400"><i class="fas fa-check-circle text-green-400 mr-1 mt-2"></i> Material validado para turmas práticas</p>
+                    <p class="text-xs text-senac-orange font-bold uppercase tracking-widest mb-1">Supervisão Pedagógica</p>
+                    <p class="text-xl font-bold">Profª. Francinete Freitas</p>
                 </div>
             </div>
             
-            <div class="bg-gradient-to-r from-senac-blue to-blue-800 p-8 rounded-3xl border border-blue-500/30 text-center max-w-sm w-full shadow-2xl">
-                <i class="fas fa-award text-6xl text-senac-orange mb-4 drop-shadow-lg"></i>
-                <h4 class="font-bold text-2xl mb-2 text-white">Certificação</h4>
-                <p class="text-sm text-blue-200">Requisito mínimo de 75% de frequência e aprovação no Exame Prático Final (Aplicação em modelo viva).</p>
+            <div class="bg-gradient-to-r from-senac-blue to-blue-800 p-6 rounded-2xl border border-blue-500/30 text-center max-w-sm w-full shadow-lg">
+                <i class="fas fa-certificate text-5xl text-senac-orange mb-3"></i>
+                <h4 class="font-bold text-xl mb-1 text-white">Avaliação Final</h4>
+                <p class="text-sm text-blue-200">A aluna deve dominar a teoria de biossegurança (prova escrita) e a excelência arquitetônica (prova prática em modelo viva no tempo máximo de 3h).</p>
             </div>
         </div>
         
-        <div class="text-center text-xs text-gray-500 mt-12 border-t border-gray-700 pt-6">
-            <p>&copy; 2026 Formação Profissional em Nail Design - Instrutora Francinete Freitas. Todos os direitos reservados.</p>
+        <div class="text-center text-xs text-gray-500 mt-10 border-t border-gray-700 pt-6">
+            <p>&copy; 2026 Formação Profissional em Estética e Bem-Estar. Todos os direitos reservados.</p>
         </div>
     </footer>
 
